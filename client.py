@@ -38,18 +38,23 @@ class Process:
         while 1:
             message, _ = receive_socket.recvfrom(BUFFER_SIZE)
             message = message.decode().split(":")
-            _, sender_vector = int(message[0]), ast.literal_eval(message[1])
+            sender_vector = ast.literal_eval(message[1])
 
             new_receiver_vector = [
-                max(a, b) for a, b in zip(self.vector, sender_vector)
+                max(a, b)
+                for a, b in zip(
+                    self.vector,
+                    sender_vector,
+                )
             ]
             receiver_index = self.ports.index(self.port)
             new_receiver_vector[receiver_index] += 1
 
             print(
-                f"Vetor recebido: {sender_vector}\nVetor antes da mensagem: {self.vector}\nVetor resultante: {new_receiver_vector}\n"
+                f"Vetor recebido: {sender_vector}\n"
+                f"Vetor antes da mensagem: {self.vector}\n"
+                f"Vetor resultante: {new_receiver_vector}\n"
             )
-
             self.vector = new_receiver_vector
 
     def _set_random_delay(self):
