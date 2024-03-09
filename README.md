@@ -5,17 +5,13 @@
 1. Hícaro Dânrlley - 21110431
 2. Wemilly Maria - 21110434
 
-## Requisitos
-
-Gere um ambiente virtual e execute-o:
-
-```bash
-python -m venv .env && source .env/bin/activate
-```
-
 ## Uso
 
-TODO.
+```bash
+python client.py
+```
+
+Caso queira parar a execução do programa, use `Ctrl+C`.
 
 ## Licença
 
